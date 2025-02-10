@@ -10,6 +10,15 @@ vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = tru
 vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+vim.keymap.set({"n", "i"}, "<A-Enter>", "<C-/>", { desc = "Open a terminal", remap = true })
+vim.keymap.set("n", "<A-H>", "gT", { desc = "Go to previous tab", remap = true })
+vim.keymap.set("n", "<A-L>", "gt", { desc = "Go to next tab", remap = true })
+
+vim.keymap.set("t", "<A-h>", '<C-\\><C-N><C-w>h', { desc = "Go to left window", remap = true })
+vim.keymap.set("t", "<A-j>", "<C-\\><C-N><C-w>j", { desc = "Go to lower window", remap = true })
+vim.keymap.set("t", "<A-k>", "<C-\\><C-N><C-w>k", { desc = "Go to upper window", remap = true })
+vim.keymap.set("t", "<A-l>", "<C-\\><C-N><C-w>l", { desc = "Go to right window", remap = true })
+vim.keymap.set({"n", "t", "i"}, "<A-Enter>", "<C-\\><C-N>:lua Snacks.terminal.open()<cr>", { desc = "Open another terminal", remap = true })
 
 vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 vim.keymap.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
@@ -19,4 +28,4 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Go to definition variants
-vim.keymap.set("n", "<C-w>d", function() require("telescope.builtin").lsp_definitions({ reuse_win = true, jump_type = "vsplit" }) end)
+vim.keymap.set("n", "<C-w>d", function() require("fzf-lua").lsp_definitions({ reuse_win = true, jump_type = "vsplit" }) end)

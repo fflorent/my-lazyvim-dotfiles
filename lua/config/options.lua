@@ -4,3 +4,6 @@
 
 vim.g.autoformat = false -- globally
 vim.opt.clipboard = "unnamed"
+vim.g.root_spec = { { ".git", "lua" }, "cwd" }
+vim.opt.wrap = true
+vim.g.snacks_animate = false
